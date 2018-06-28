@@ -1,0 +1,11 @@
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.deps.json
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.runtimeconfig.json
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.runtimeconfig.dev.json
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.dll
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.pdb
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.csprojAssemblyReference.cache
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.csproj.CoreCompileInputs.cache
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.AssemblyInfoInputs.cache
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.AssemblyInfo.cs
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.dll
+/Users/totipu/Repos/TotipuTeamsMicro/src/StatlerWaldorfCorp.TeamService/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.pdb

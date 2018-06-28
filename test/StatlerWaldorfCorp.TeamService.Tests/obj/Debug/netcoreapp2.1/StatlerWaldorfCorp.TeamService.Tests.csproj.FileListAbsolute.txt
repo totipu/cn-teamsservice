@@ -1,0 +1,17 @@
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.deps.json
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.runtimeconfig.json
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.runtimeconfig.dev.json
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.dll
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.pdb
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.dll
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.pdb
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.csprojAssemblyReference.cache
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.csproj.CoreCompileInputs.cache
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.AssemblyInfoInputs.cache
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.AssemblyInfo.cs
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.csproj.CopyComplete
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.dll
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/obj/Debug/netcoreapp2.1/StatlerWaldorfCorp.TeamService.Tests.pdb
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll
+/Users/totipu/Repos/TotipuTeamsMicro/test/StatlerWaldorfCorp.TeamService.Tests/bin/Debug/netcoreapp2.1/xunit.runner.utility.netcoreapp10.dll
