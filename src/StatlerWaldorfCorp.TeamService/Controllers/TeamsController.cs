@@ -10,6 +10,7 @@ using StatlerWaldorfCorp.TeamService.Persistence;
 
 namespace StatlerWaldorfCorp.TeamService
 {
+    [Route("[controller]")]
     public class TeamsController : Controller
     {
         ITeamRepository repository;
