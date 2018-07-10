@@ -6,25 +6,46 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StatlerWaldorfCorp.TeamService.Models;
 using StatlerWaldorfCorp.TeamService.Persistence;
+using StatlerWaldorfCorp.TeamService.LocationClient;
 
 namespace StatlerWaldorfCorp.TeamService {
   public class Startup
   {
-      public Startup(IHostingEnvironment env)
-      {
-      }
+    public static string[] Args {get; set;} = new string[] { };
+    private ILogger logger;
+    private ILoggerFactory loggerFactory;
+    public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
+    {
+      var builder = new ConfigurationBuilder()
+        .SetBasePath(System.IO.Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json", optional: true)
+        .AddEnvironmentVariables()
+        .AddCommandLine(Startup.Args);
 
-      public IConfigurationRoot Configuration { get; } 
+      Configuration = builder.Build();
 
-      public void ConfigureServices (IServiceCollection services)
-      {
-        services.AddMvc();
-        services.AddScoped<ITeamRepository, MemoryTeamRepository>();
-      }       
-      
-      public void Configure(IApplicationBuilder app)
-      {
-        app.UseMvc();
-      }
+      this.loggerFactory = loggerFactory;
+      this.loggerFactory.AddConsole(LogLevel.Information);
+      this.loggerFactory.AddDebug();
+
+      this.logger = this.loggerFactory.CreateLogger("Startup");
+    }
+
+    public IConfigurationRoot Configuration { get; } 
+
+    public void ConfigureServices (IServiceCollection services)
+    {
+      services.AddMvc();
+      services.AddScoped<ITeamRepository, MemoryTeamRepository>();
+
+      var locationUrl = Configuration.GetSection("location:url").Value;
+      logger.LogInformation("Using {0} for location service URL.", locationUrl);
+      services.AddSingleton<ILocationClient>(new HttpLocationClient(locationUrl));
+    }       
+    
+    public void Configure(IApplicationBuilder app)
+    {
+      app.UseMvc();
+    }
   }   
 }

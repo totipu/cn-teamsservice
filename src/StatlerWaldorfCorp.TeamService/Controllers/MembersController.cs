@@ -7,17 +7,20 @@ using System.Linq;
 using StatlerWaldorfCorp.TeamService.Models;
 using System.Threading.Tasks;
 using StatlerWaldorfCorp.TeamService.Persistence;
+using StatlerWaldorfCorp.TeamService.LocationClient;
 
 namespace StatlerWaldorfCorp.TeamService
 {
     [Route("/teams/{teamId}/[controller]")]
     public class MembersController : Controller
     {
-        ITeamRepository repository;
+        private ITeamRepository repository;
+        private ILocationClient locationClient;
 
-        public MembersController (ITeamRepository repo)
+        public MembersController (ITeamRepository repository, ILocationClient locationClient)
         {
-            repository = repo;
+            this.repository = repository;
+            this.locationClient = locationClient;
         }
 
         [HttpPost]
@@ -29,6 +32,7 @@ namespace StatlerWaldorfCorp.TeamService
                 return this.NotFound();
             } else {
                 team.Members.Add(newMember);
+                this.repository.Update(team);
                 var teamMember = new { TeamID = team.ID, MemberID = newMember.ID };
                 return this.Created($"/teams/{teamMember.TeamID}/[controller]/{teamMember.MemberID}", 
                     teamMember);
@@ -49,7 +53,7 @@ namespace StatlerWaldorfCorp.TeamService
 
         [HttpGet]
         [Route("/teams/{teamId}/[controller]/{memberId}")]
-        public virtual IActionResult GetMember(Guid teamID, Guid memberID)
+        public async virtual Task<IActionResult> GetMember(Guid teamID, Guid memberID)
         {
             Team team = repository.Get(teamID);
 
@@ -61,7 +65,15 @@ namespace StatlerWaldorfCorp.TeamService
                 if (q.Count() < 1) {
                     return this.NotFound();
                 } else {
-                    return this.Ok(q.First());
+                    Member member = (Member)q.First();
+
+                    return this.Ok(new LocatedMember {
+                        ID = member.ID,
+                        FirstName = member.FirstName,
+                        LastName = member.LastName,
+                        LastLocation = 
+                            await this.locationClient.GetLatestForMember(member.ID)
+                    });
                 }
             }            
         }
@@ -83,8 +95,8 @@ namespace StatlerWaldorfCorp.TeamService
 
                     team.Members.Remove(q.First());
                     team.Members.Add(updatedMember);
+                    this.repository.Update(team);
                     return this.Ok();
-
                 }
             }            
         }
