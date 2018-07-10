@@ -885,6 +885,20 @@
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration.Json/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "2.1.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "2.1.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -3539,6 +3553,18 @@
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.xml",
         "microsoft.extensions.configuration.fileextensions.2.1.0.nupkg.sha512",
         "microsoft.extensions.configuration.fileextensions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Json/2.1.0": {
+      "sha512": "mOA1kLN0f3NiGVpEtIT5VbUcC75kuh1O4Q1wOITadmMwPb0o6eYMrvgfY5ojrbDi5b2QictGrAnOY+ziLO5UMg==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.json/2.1.0",
+      "files": [
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.xml",
+        "microsoft.extensions.configuration.json.2.1.0.nupkg.sha512",
+        "microsoft.extensions.configuration.json.nuspec"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/2.1.0": {
@@ -7974,7 +8000,9 @@
     ".NETCoreApp,Version=v2.1": [
       "Microsoft.AspNetCore.Mvc >= 2.1.0",
       "Microsoft.AspNetCore.Server.Kestrel >= 2.1.0",
+      "Microsoft.Extensions.Configuration >= 2.1.0",
       "Microsoft.Extensions.Configuration.CommandLine >= 2.1.0",
+      "Microsoft.Extensions.Configuration.Json >= 2.1.0",
       "Microsoft.Extensions.Logging >= 2.1.0",
       "Microsoft.Extensions.Logging.Console >= 2.1.0",
       "Microsoft.Extensions.Logging.Debug >= 2.1.0",
@@ -8028,7 +8056,15 @@
             "target": "Package",
             "version": "[2.1.0, )"
           },
+          "Microsoft.Extensions.Configuration": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
           "Microsoft.Extensions.Configuration.CommandLine": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
+          "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
             "version": "[2.1.0, )"
           },
