@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using StatlerWaldorfCorp.TeamService.Models;
 using StatlerWaldorfCorp.TeamService.Persistence;
 using StatlerWaldorfCorp.TeamService.LocationClient;
+using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace StatlerWaldorfCorp.TeamService {
   public class Startup
@@ -14,30 +16,42 @@ namespace StatlerWaldorfCorp.TeamService {
     public static string[] Args {get; set;} = new string[] { };
     private ILogger logger;
     private ILoggerFactory loggerFactory;
-    public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
+    public Startup(IConfiguration configuration, ILoggerFactory loggerFactory)
     {
-      var builder = new ConfigurationBuilder()
-        .SetBasePath(System.IO.Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.json", optional: true)
-        .AddEnvironmentVariables()
-        .AddCommandLine(Startup.Args);
+        Configuration = configuration;
 
-      Configuration = builder.Build();
+        this.loggerFactory = loggerFactory;
+        this.loggerFactory.AddConsole(LogLevel.Information);
+        this.loggerFactory.AddDebug();
 
-      this.loggerFactory = loggerFactory;
-      this.loggerFactory.AddConsole(LogLevel.Information);
-      this.loggerFactory.AddDebug();
-
-      this.logger = this.loggerFactory.CreateLogger("Startup");
+        this.logger = this.loggerFactory.CreateLogger("StartUp");
     }
 
-    public IConfigurationRoot Configuration { get; } 
+    public IConfiguration Configuration { get; } 
 
     public void ConfigureServices (IServiceCollection services)
     {
-      services.AddMvc();
-      services.AddScoped<ITeamRepository, MemoryTeamRepository>();
+      var transient = true;
+      if (Configuration.GetSection("transient") != null) {
+          transient = Boolean.Parse(Configuration.GetSection("transient").Value);
+      }
+      
+      if (transient) {
+          logger.LogInformation("Using transient team record repository.");
+          services.AddScoped<ITeamRepository, MemoryTeamRepository>();
+      } else {            
+          string connectionString = Configuration.GetSection("sqldb:cstr").Value;
 
+          services.AddEntityFrameworkSqlServer()
+              .AddDbContext<TeamDbContext> (options => options.UseSqlServer(connectionString));
+
+          logger.LogInformation("Using '{0}' for DB connection string.", connectionString);
+
+          services.AddScoped<ITeamRepository, TeamRecordRepository>();
+      }
+
+      services.AddMvc();
+      
       var locationUrl = Configuration.GetSection("location:url").Value;
       logger.LogInformation("Using {0} for location service URL.", locationUrl);
       services.AddSingleton<ILocationClient>(new HttpLocationClient(locationUrl));

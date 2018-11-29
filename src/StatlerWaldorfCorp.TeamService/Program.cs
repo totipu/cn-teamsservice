@@ -1,28 +1,35 @@
 using System;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 
 
 namespace StatlerWaldorfCorp.TeamService
 {
     class Program
     {
-        static void Main(string[] args)
+		
+        public static void Main(string[] args)
         {
-            var config = new ConfigurationBuilder()
-                .AddCommandLine(args)
-                .Build();
+			//foreach(var v in Environment.GetEnvironmentVariables().Keys) {
+			//	Console.WriteLine(v.ToString());
+			//}
 
-            Startup.Args = args;
+			BuildWebHost(args).Run();
+		}
 
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseStartup<Startup>()
-                .UseConfiguration(config)
-                .Build();
-
-            host.Run();            
-        }
+		public static IWebHost BuildWebHost(string[] args) =>
+			WebHost.CreateDefaultBuilder(args)										
+				.UseStartup<Startup>()		
+				.ConfigureAppConfiguration((hostContext, config) =>
+				{
+					// delete all default configuration providers
+					config.Sources.Clear();
+					config.AddJsonFile("appsettings.json", optional:true);
+					config.AddEnvironmentVariables();
+				})		
+				.Build();
     }
 }

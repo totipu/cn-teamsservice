@@ -22,7 +22,7 @@ namespace StatlerWaldorfCorp.TeamService.Persistence
             return teams;
         }
 
-        public Team AddTeam (Team t) {
+        public Team Add (Team t) {
             teams.Add(t);
             return t;
         }
@@ -36,7 +36,7 @@ namespace StatlerWaldorfCorp.TeamService.Persistence
             Team team = this.Delete(t.ID);
 
             if (team != null) {
-                team = this.AddTeam(t);
+                team = this.Add(t);
             }
 
             return team;

@@ -29,7 +29,7 @@ namespace StatlerWaldorfCorp.TeamService
         [HttpPost]
         public IActionResult CreateTeam([FromBody]Team newTeam)
         {
-            repository.AddTeam(newTeam);
+            repository.Add(newTeam);
             
             return this.Created($"/teams/{newTeam.ID}", newTeam);
         }

@@ -9,7 +9,7 @@ namespace StatlerWaldorfCorp.TeamService.Models
 
         public Guid ID { get; set; }
 
-        public ICollection<Member> Members { get; set; }
+        public virtual ICollection<Member> Members { get; set; }
 
         public Team()
         {
