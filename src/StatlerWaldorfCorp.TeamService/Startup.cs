@@ -40,7 +40,7 @@ namespace StatlerWaldorfCorp.TeamService {
           logger.LogInformation("Using transient team record repository.");
           services.AddScoped<ITeamRepository, MemoryTeamRepository>();
       } else {            
-          string connectionString = Configuration.GetSection("sqldb:cstr").Value;
+          // string connectionString = Configuration.GetSection("sqldb:cstr").Value;
 
           string sqlServer = Environment.GetEnvironmentVariable("SQL_SERVER"); // "totiputeamsvcdb.database.windows.net";
           string databaseName = Environment.GetEnvironmentVariable("SQL_DATABASE"); // "TeamServiceDB";
