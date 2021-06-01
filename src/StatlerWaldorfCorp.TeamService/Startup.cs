@@ -47,7 +47,7 @@ namespace StatlerWaldorfCorp.TeamService {
           string userId = Environment.GetEnvironmentVariable("SQL_USERID"); // "totipu";
           string password = Environment.GetEnvironmentVariable("SQL_PASSWORD"); // "industrija2!";
 
-          connectionString = $"Server=tcp:{sqlServer},1433;Initial Catalog={databaseName};Persist Security Info=False;User ID={userId};Password={password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+          string connectionString = $"Server=tcp:{sqlServer},1433;Initial Catalog={databaseName};Persist Security Info=False;User ID={userId};Password={password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
           services.AddEntityFrameworkSqlServer()
               .AddDbContext<TeamDbContext> (options => options.UseSqlServer(connectionString));
